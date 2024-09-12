@@ -1,0 +1,107 @@
+{
+    "Tel Aviv": {
+        "lat": 32.0833,
+        "lon": 34.8,
+        "weather": "Clear",
+        "clouds": 0,
+        "wind_speed": 5.32
+    },
+    "Damascus": {
+        "lat": 33.5102,
+        "lon": 36.2913,
+        "weather": "Clear",
+        "clouds": 0,
+        "wind_speed": 3.66
+    },
+    "Beirut": {
+        "lat": 33.8889,
+        "lon": 35.4944,
+        "weather": "Clear",
+        "clouds": 0,
+        "wind_speed": 2.56
+    },
+    "Amman": {
+        "lat": 31.9552,
+        "lon": 35.945,
+        "weather": "Clear",
+        "clouds": 0,
+        "wind_speed": 1.63
+    },
+    "Cairo": {
+        "lat": 30.0626,
+        "lon": 31.2497,
+        "weather": "Clear",
+        "clouds": 0,
+        "wind_speed": 5.11
+    },
+    "Baghdad": {
+        "lat": 33.3406,
+        "lon": 44.4009,
+        "weather": "Clear",
+        "clouds": 0,
+        "wind_speed": 6.25
+    },
+    "Tehran": {
+        "lat": 35.6944,
+        "lon": 51.4215,
+        "weather": "Clear",
+        "clouds": 4,
+        "wind_speed": 0.73
+    },
+    "Riyadh": {
+        "lat": 24.6877,
+        "lon": 46.7219,
+        "weather": "Clear",
+        "clouds": 8,
+        "wind_speed": 1.04
+    },
+    "Tripoli": {
+        "lat": 32.8752,
+        "lon": 13.1875,
+        "weather": "Rain",
+        "clouds": 51,
+        "wind_speed": 6.41
+    },
+    "Ankara": {
+        "lat": 39.9199,
+        "lon": 32.8543,
+        "weather": "Clear",
+        "clouds": 0,
+        "wind_speed": 1.03
+    },
+    "Khartoum": {
+        "lat": 15.5518,
+        "lon": 32.5324,
+        "weather": "Clouds",
+        "clouds": 53,
+        "wind_speed": 3.06
+    },
+    "Sanaa": {
+        "lat": 15.3547,
+        "lon": 44.2067,
+        "weather": "Clouds",
+        "clouds": 98,
+        "wind_speed": 0.73
+    },
+    "Manama": {
+        "lat": 26.2154,
+        "lon": 50.5832,
+        "weather": "Clear",
+        "clouds": 0,
+        "wind_speed": 4.42
+    },
+    "Kuwait City": {
+        "lat": 29.3697,
+        "lon": 47.9783,
+        "weather": "Clear",
+        "clouds": 0,
+        "wind_speed": 7.83
+    },
+    "Doha": {
+        "lat": 25.2867,
+        "lon": 51.5333,
+        "weather": "Clear",
+        "clouds": 0,
+        "wind_speed": 3.42
+    }
+}
