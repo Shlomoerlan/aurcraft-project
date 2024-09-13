@@ -60,10 +60,6 @@ def calculate_weighted_score(distance_score, aircraft_score, pilot_skill, weathe
 def create_assigned_target(city, priority, pilot, distance, weather, pilot_skill, aircraft_speed, fuel_capacity, aircraft_type ,  mission_fit_score):
     return Assigned_target(city, priority, pilot, distance, weather, pilot_skill, aircraft_speed, fuel_capacity,aircraft_type, mission_fit_score)
 
-def random_multiply_score(item):
-    multiplier = random.uniform(1, 3.5)
-    item.mission_fit_score *= multiplier
-    return item
 
 @curry
 def assign_target(pilot, aircraft, city_name, priority, distance, city_weather, max_distance, min_distance):
@@ -81,7 +77,7 @@ def get_distances(cities, tel_aviv):
     return map(lambda city: (city[0], calculate_distance(tel_aviv['lat'], tel_aviv['lon'], city[1]['lat'], city[1]['lon'])), cities.items())
 
 
-def generate_assigned_targets():
+def assigned_targets():
     tel_aviv = {"lat": 32.0833, "lon": 34.8}
     pilots = load_json("../assets/pilots.json")
     aircrafts = load_json("../assets/aircraft.json")
@@ -108,8 +104,7 @@ def generate_assigned_targets():
                    for pilot in pilots]
     ))
 
-    assigned_targets_with_random_scores = list(map(random_multiply_score, assigned_targets))
-    save_json(assigned_targets_with_random_scores, "../assets/assigned_updated.json")
+    save_json(assigned_targets, "../assets/assigned_updated.json")
 
 
 def save_json(data, path):
@@ -122,34 +117,12 @@ def get_top_5_targets(data):
     return sorted_data[:5]
 
 
-def is_unique_target(target, used_pilots, used_aircrafts, used_cities):
-    pilot = target['assigned_pilot']
-    aircraft = target['aircraft_type']
-    city = target['target_city']
-    return pilot not in used_pilots and aircraft not in used_aircrafts and city not in used_cities
 
 
-def add_target(acc, target):
-    used_pilots, used_aircrafts, used_cities, top_targets = acc
-    if is_unique_target(target, used_pilots, used_aircrafts, used_cities):
-        top_targets.append(target)
-        used_pilots.add(target['assigned_pilot'])
-        used_aircrafts.add(target['aircraft_type'])
-        used_cities.add(target['target_city'])
-    return used_pilots, used_aircrafts, used_cities, top_targets
-
-
-def get_top_7_unique_targets(assigned_targets):
-    sorted_targets = sorted(assigned_targets, key=itemgetter('mission_fit_score'), reverse=True)
-    _, _, _, top_targets = reduce(add_target, sorted_targets, (set(), set(), set(), []))
-    return top_targets[:7]
-
-
-generate_assigned_targets()
+assigned_targets()
 assigned = load_json("../assets/assigned_updated.json")
 print(len(assigned))
-# top_5 = get_top_5_targets([Assigned_target(**item) for item in assigned])
+top_5 = get_top_5_targets([Assigned_target(**item) for item in assigned])
 
-f = get_top_7_unique_targets(assigned)
-for i in f:
+for i in top_5:
     print(i['target_city'], i['assigned_pilot'], i['aircraft_type'])
